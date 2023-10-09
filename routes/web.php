@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MailController;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,7 @@ Route::get('/create', function () {
     return view('create_student');
 })->name('create');
 
+Route::get('/mail', [MailController::class, 'send']);
 
 Route::post('/create', function (Request $request) {
     Student::create([
@@ -34,4 +36,3 @@ Route::post('/create', function (Request $request) {
 
     return redirect()->route("/");
 })->name('save');
-
