@@ -12,13 +12,11 @@ class MailController extends Controller
     //
     public function send()
     {
-        $mails = ['kolawole@gmail.com', 'dapo@gmail.com', 'tobi@gmail.com'];
+        $mails = ['jmkolawole@gmail.com', 'mkojimoh@gmail.com', 'kolawole@aeeiee.com'];
 
         foreach ($mails as $mail) {
             dispatch(new SendEmailQueueJob($mail));
         }
-
-
 
         dd('yes');
     }

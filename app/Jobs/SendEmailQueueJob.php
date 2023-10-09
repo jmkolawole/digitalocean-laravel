@@ -15,7 +15,6 @@ class SendEmailQueueJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    
     protected $send_mail;
   
     /**
@@ -34,6 +33,6 @@ class SendEmailQueueJob implements ShouldQueue
     public function handle()
     {
         //
-        Mail::to($this->send_mail)->send(new SendEmail());
+        Mail::to($this->send_mail)->send(new SendEmail($this->send_mail));
     }
 }
